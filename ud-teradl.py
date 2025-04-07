@@ -11,7 +11,7 @@ from tqdm import tqdm
 # Load environment variables
 API_ID = int(os.getenv("API_ID", 22141398))
 API_HASH = os.getenv("API_HASH", '0c8f8bd171e05e42d6f6e5a6f4305389')
-BOT_TOKEN = os.getenv("BOT_TOKEN", '7617149969:AAEpciBBwbPF5pUvUR-QZRHPjje0NQRnbag')
+BOT_TOKEN = os.getenv("BOT_TOKEN", '7277194738:AAHrewQsvKcPqeXYeMIbSk-nyUjgJ14kW8U')
 
 if not BOT_TOKEN:
     raise ValueError("BOT_TOKEN is not set!")
@@ -130,12 +130,6 @@ async def handle_message(client, message):
     else:
         await message.reply("Failed to fetch file details. Please check the link.")
 
-# Start bot with a startup message
-async def on_startup():
-    bot_info = await bot.get_me()
-    logger.info(f"Bot Started Successfully as @{bot_info.username} ({bot_info.id})")
 
-bot.start()
-asyncio.get_event_loop().run_until_complete(on_startup())
 bot.run()
 
