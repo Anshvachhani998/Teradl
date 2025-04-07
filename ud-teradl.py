@@ -130,4 +130,12 @@ async def handle_message(client, message):
     else:
         await message.reply("Failed to fetch file details. Please check the link.")
 
+# Start bot with a startup message
+async def on_startup():
+    bot_info = await bot.get_me()
+    logger.info(f"Bot Started Successfully as @{bot_info.username} ({bot_info.id})")
+
+bot.start()
+asyncio.get_event_loop().run_until_complete(on_startup())
 bot.run()
+
